@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Manage Users</title>
+</head>
+<body>
+    <h1>User List</h1>
+    <ul>
+        {% for user in users %}
+<li>{{ user._id }} - {{ user.name }} - {{ user.email }} - {{ user.password }}</li>
+        {% endfor %}
+    </ul>
+ <h2>Add New User</h2>
+<form action="{{ url_for('add_user') }}" method="post">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name">
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email">
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password">
+    <button type="submit">Add User</button>
+</form>
+<h1>Add Weather Data</h1>
+    <form action="/add_weather" method="POST">
+        <label for="user_id">User ID:</label>
+        <input type="text" id="user_id" name="user_id" required><br><br>
+        <label for="weather">Weather:</label>
+        <input type="text" id="weather" name="weather" required><br><br>
+        <label for="times">Times:</label>
+        <input type="text" id="times" name="times" required><br><br>
+        <button type="submit">Add Weather Data</button>
+    </form>
+</body>
+</html>
